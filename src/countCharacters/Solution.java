@@ -1,5 +1,8 @@
 package countCharacters;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
     /**
      * 给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。
@@ -25,6 +28,26 @@ public class Solution {
      * 所有字符串中都仅包含小写英文字母
      */
     public int countCharacters(String[] words, String chars) {
-        return 0;
+        int result = 0;
+        if (words==null||chars==null) return result;
+        byte[] bytes = chars.getBytes();
+        Map<Byte,Integer> map = new HashMap<>();
+        for (byte aByte : bytes) {
+            map.put(aByte,map.getOrDefault(aByte,0)+1);
+        }
+        Map<Byte,Integer> temp = new HashMap<>();
+        LabelA:for (String word : words) {
+            temp.clear();
+            byte[] bytes1 = word.getBytes();
+            for (byte b : bytes1) {
+                int count = temp.getOrDefault(b,0)+1;
+                if(count>map.getOrDefault(b,0)){
+                    continue LabelA;
+                }
+                temp.put(b,count);
+            }
+            result += word.length();
+        }
+        return result;
     }
 }
