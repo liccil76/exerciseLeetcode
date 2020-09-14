@@ -42,4 +42,15 @@ public class Solution {
         }
         return sum;
     }
+    public int diagonalSum2(int[][] mat) {
+        int[] a = {0,0};
+        int[] b = {mat.length-1,0};
+        int sum = 0;
+        int diff=0;
+        if(mat.length%2!=0) diff = mat[(mat.length-1)/2][(mat.length-1)/2];
+        for (int i = 0; i < mat.length; i++) {
+            sum += mat[a[0]++][a[1]++] + mat[b[0]--][b[1]++];
+        }
+        return sum-diff;
+    }
 }
