@@ -11,7 +11,7 @@ public class Main {
         b.next=c;
         c.next=d;
         d.next=e;
-        new Solution().deleteNode(c);
+        new Solution2().deleteNode(a,2);
         System.out.println(a);
     }
 }
