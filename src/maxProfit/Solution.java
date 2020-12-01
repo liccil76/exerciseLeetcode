@@ -31,16 +31,18 @@ public class Solution {
             maxProfit = Math.max(maxProfit,prices[i]-a);
         }
         return maxProfit;
-
-//        //官方解法（一次遍历）
-//        int minprice = Integer.MAX_VALUE;
-//        int maxprofit = 0;
-//        for (int i = 0; i < prices.length; i++) {
-//            if (prices[i] < minprice)
-//                minprice = prices[i];
-//            else if (prices[i] - minprice > maxprofit)
-//                maxprofit = prices[i] - minprice;
-//        }
-//        return maxprofit;
+    }
+    //官方解法，一次遍历
+    public int maxProfit2(int[] prices) {
+        //官方解法（一次遍历）
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0;
+        for (int price : prices) {
+            if (price < minprice)
+                minprice = price;
+            else if (price - minprice > maxprofit)
+                maxprofit = price - minprice;
+        }
+        return maxprofit;
     }
 }
