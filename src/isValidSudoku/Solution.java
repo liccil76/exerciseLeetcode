@@ -88,4 +88,38 @@ public class Solution {
         }
         return true;
     }
+    //使用二维数组
+    public boolean isValidSudoku2(char[][] board) {
+        //行数组
+        int[][] rows = new int[9][9];
+        //列数组
+        int[][] cols = new int[9][9];
+        //箱子数组
+        int[][] boxs = new int[9][9];
+        for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+                char c = board[x][y];
+                if(c!='.'){
+                    int val = c-'1';
+                    int boxIndex = (x/3)*3+y/3;
+                    if (rows[x][val]==1) {
+                        return false;
+                    } else {
+                        rows[x][val]=1;
+                    }
+                    if (cols[y][val]==1) {
+                        return false;
+                    } else {
+                        cols[y][val]=1;
+                    }
+                    if (boxs[boxIndex][val]==1)  {
+                        return false;
+                    } else {
+                        boxs[boxIndex][val]=1;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
