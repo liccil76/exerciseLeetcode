@@ -13,7 +13,7 @@ public class Solution {
      * 0 <= 节点个数 <= 5000
      */
     public ListNode reverseList(ListNode head) {
-        //双指针
+        //相邻双指针，同时向右移动
         if (head == null || head.next == null) {
             return head;
         }
@@ -21,10 +21,10 @@ public class Solution {
         ListNode cur = head.next;
         pre.next = null;
         while (cur != null) {
-            ListNode tmp = cur.next;
+            ListNode temp = cur.next;
             cur.next = pre;
             pre = cur;
-            cur = tmp;
+            cur = temp;
         }
         return pre;
     }
