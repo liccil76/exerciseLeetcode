@@ -11,6 +11,7 @@ public class Main {
         b.next=c;
         c.next=d;
         d.next=e;
-        System.out.println(new Solution().reverseList(a));
+        ListNode listNode = new Solution2().reverseList(a);
+        System.out.println(listNode);
     }
 }
