@@ -17,18 +17,18 @@ public class Solution2 {
         head = two;
         head.next = temp;
 
-        head.next.next = temp(next);
+        head.next.next = reverse(next);
         return result;
     }
 
-    private ListNode temp(ListNode node) {
+    private ListNode reverse(ListNode node) {
         if (node == null || node.next == null) return node;
         ListNode temp = node;
         ListNode two = node.next;
         ListNode next = two.next;
         node = two;
         node.next = temp;
-        node.next.next = temp(next);
+        node.next.next = reverse(next);
         return node;
     }
 
