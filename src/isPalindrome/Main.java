@@ -2,7 +2,7 @@ package isPalindrome;
 
 public class Main {
     public static void main(String[] args){
-        String s = "race a car";
-        System.out.println(new Solution().isPalindrome(s));
+        int a = 11;
+        System.out.println(new Solution2().isPalindrome2(a));
     }
 }
