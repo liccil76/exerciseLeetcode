@@ -21,8 +21,25 @@ public class Solution {
             arr[aByte-97]++;
         }
         for (byte aByte : bytes) {
-            if(arr[aByte-97]==1) return (char)aByte;
+            if(arr[aByte-97]==1) {
+                return (char)aByte;
+            }
         }
         return ' ';
+    }
+
+    public int firstUniqChar2(String s) {
+        int[] arr = new int[26];
+        byte[] bytes = s.getBytes();
+        for (byte aByte : bytes) {
+            arr[aByte-97]++;
+        }
+        for (int i = 0; i < bytes.length; i++) {
+            byte aByte = bytes[i];
+            if(arr[aByte-97]==1) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
