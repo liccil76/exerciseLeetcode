@@ -1,5 +1,8 @@
 package reverseList;
 
+import java.util.Stack;
+import java.util.concurrent.LinkedBlockingDeque;
+
 public class Solution {
     /**
      * 剑指 Offer 24. 反转链表
@@ -12,8 +15,12 @@ public class Solution {
      * 限制：
      * 0 <= 节点个数 <= 5000
      */
+    /**
+     * 双指针
+     * @param head
+     * @return
+     */
     public ListNode reverseList(ListNode head) {
-        //相邻双指针，同时向右移动
         if (head == null || head.next == null) {
             return head;
         }
@@ -27,5 +34,31 @@ public class Solution {
             cur = temp;
         }
         return pre;
+    }
+
+    /**
+     * 栈（使用压栈方式）
+     * @param head
+     * @return
+     */
+    public ListNode reverseList2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Stack<ListNode> stack = new Stack<>();
+        while (head != null){
+            ListNode temp = head.next;
+            head.next = null;
+            stack.add(head);
+            head = temp;
+        }
+        ListNode trueHead = stack.pop();
+        ListNode cur = trueHead;
+        while (!stack.isEmpty()){
+            ListNode temp = stack.pop();
+            cur.next = temp;
+            cur = temp;
+        }
+        return trueHead;
     }
 }
