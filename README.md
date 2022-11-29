@@ -1,6 +1,5 @@
 # exerciseLeetcode
-leetcode刷题记录
-
+leetcode练习记录
 已经做完：
 
     1、动态规划（easy）
